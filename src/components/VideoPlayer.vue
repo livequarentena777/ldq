@@ -94,6 +94,17 @@ let videos = [
     creator: 'Gustavo Lima',
     likes: 0,
     views: 0
+  },
+  {
+    id: 6,
+    title: 'Marcos & Belutti',
+    slug: 'marcos-e-belutti',
+    thumbnail:
+      'https://i.ytimg.com/vi/pVXqt3axjyo/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLCCxXm7aoPShOwON74nhMlGYMUkHw',
+    youtubeURL: 'https://www.youtube.com/embed/pVXqt3axjyo',
+    creator: 'Marcos & Belutti',
+    likes: 0,
+    views: 0
   }
 ]
 
