@@ -9,8 +9,8 @@
       </div>
       <div class="row">
           <div class="container-video col-sm-12 col-md-8 col-lg-8 col-xl-8">
-            <iframe width="100%" height="100%" :src="this.activeVideo.youtubeURL" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            <h2>{{this.activeVideo.title}}</h2>
+            <iframe id="iframe-video" width="100%" height="100%" :src="(this.activeVideo ? this.activeVideo.youtubeURL : '')" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <h2>{{(this.activeVideo ? this.activeVideo.title : '')}}</h2>
           </div>
           <div class="banner-rectangle col-sm-12">
             <div class="medium-rectangle-middle" data-mvc-banner="medium-rectangle"></div>
@@ -102,10 +102,13 @@ export default {
   data () {
     return {
       videos,
-      activeVideo: videos[0]
+      activeVideo: videos[-1]
     }
   },
   methods: {
+    scrollToTop () {
+      window.scrollTo(0, 0)
+    },
     chooseVideo (video) {
       // SET VIDEO AS ACTIVE VIDEO
       this.activeVideo = video
@@ -113,10 +116,14 @@ export default {
       video.views += 1
       // track GA
       page(`/${video.slug}`)
+      this.scrollToTop()
     },
     addLike () {
       this.activeVideo.likes += 1
     }
+  },
+  mounted: function () {
+    this.activeVideo = videos[0]
   }
 }
 </script>
